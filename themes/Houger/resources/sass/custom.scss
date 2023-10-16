@@ -1,0 +1,70 @@
+// Fonts
+
+//@import 'modules/bootstrap-icons';
+
+//custom classes
+@import "custom/variables";
+
+// Bootstrap
+@import 'modules/bootstrap';
+
+//animate.css
+:root {
+  --animate-duration: 1s;
+  --animate-delay: .5s;
+  --animate-repeat: 1;
+}
+
+//custom base classes
+@import "custom/base";
+
+// header
+@import "custom/header";
+@import "custom/button";
+@import "responsive";
+
+.hero-slide {
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+.service-home {
+  height: 270px !important;
+}
+
+.services-button-prev, .services-button-next {
+  transition: transform 150ms ease-out;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.grayscale-hover {
+  transition: all 120ms linear;
+  filter: grayscale(1);
+  opacity: 0.5;
+
+  &:hover {
+    transform: translateY(-5px);
+    filter: grayscale(0);
+    box-shadow: 0 0 4px #80808038;
+    opacity: 1;
+  }
+}
+.gform-body {
+  .gform_fields {
+    grid-row-gap:15px!important
+  }
+  input:not([type="submit"]) , textarea {
+  border: 1px solid #0000003b!important;
+  padding: 25px 12px!important;
+  border-radius: 0!important;
+}
+}
+.hover-border {
+  transition: padding 150ms linear;
+  &:hover {
+    padding:0.250rem;
+  }
+}
