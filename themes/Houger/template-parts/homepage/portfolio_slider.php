@@ -1,6 +1,6 @@
 <section class="container py-5">
     <h2 class="py-5"><a class="text-dark text-opacity-50 fs-5" href="<?= get_post_type_archive_link('portfolio'); ?>">آخرین پروژههای هوگر</a></h2>
-    <div class="row row-cols-lg-3">
+    <div class="row row-cols-lg-3 row-cols-md-2">
         <?php
         $args = array(
             'post_type' => 'portfolio',
@@ -14,12 +14,10 @@
             $i = 1;
             while ($loop->have_posts()) :
                 $loop->the_post(); // Use the_post() to set up post data
-                $i++; ?>
-            <a class="px-0" href="<?php the_permalink(); ?>">
-                <img class="object-fit img-fluid ratio-1x1 hover-border" height="250" src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php echo get_the_title(); ?>">
-            </a>
-
-            <?php endwhile;
+                $post_url = get_permalink();
+                $i++;
+                get_template_part('template-parts/portfolio/portfolio-card');
+                endwhile;
             wp_reset_postdata(); // Reset post data
         endif;
         ?>

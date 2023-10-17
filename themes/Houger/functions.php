@@ -2,7 +2,7 @@
 /**
  * Enqueue scripts and styles.
  */
-function amaco_scripts()
+function houger_scripts()
 {
     //    <!-- Icons -->
     wp_enqueue_style('bootstrap-icons', get_template_directory_uri() . '/public/fonts/bootstrap/bootstrap-icons.css');
@@ -12,7 +12,7 @@ function amaco_scripts()
     wp_enqueue_script('main-js', get_template_directory_uri() . '/public/js/app.js', array(), true);
 }
 
-add_action( 'wp_enqueue_scripts', 'amaco_scripts' );
+add_action( 'wp_enqueue_scripts', 'houger_scripts' );
 add_theme_support( 'title-tag' );
 add_theme_support( 'post-thumbnails' );
 

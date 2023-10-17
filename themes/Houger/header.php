@@ -24,7 +24,7 @@
                     if ($menu) :
                         wp_nav_menu(array(
                             'theme_location' => 'headerMenuLocation',
-                            'menu_class' => 'navbar-nav gap-2 align-items-center flex-wrap d-none d-lg-flex',
+                            'menu_class' => 'list-unstyled gap-3 mb-0 align-items-center flex-wrap d-flex',
                             'container' => false,
                             'menu_id' => 'navbarTogglerMenu',
                             'item_class' => 'nav-item ', // Add 'dropdown' class to top-level menu items
@@ -69,10 +69,14 @@
                 </div>
                 <a class="navbar-brand m-0" href="/">
                     <?php
-                    $site_logo = get_field('site_logo', 'option');
-                    if (!empty($site_logo)): ?>
-                        <?php echo $site_logo; ?>
-                    <?php endif; ?>
+                    $logoType = get_field('logo_type', 'option');
+                    $logoSvg = get_field('site_logo_svg', 'option');
+                    $logoImg = get_field('site_logo_image', 'option');
+                    if ($logoType == 'svg'){
+                        echo $logoSvg;
+                     } if ($logoType == 'img'){ ?>
+                        <img height="50" src="<?= $logoImg['url']?>" alt="<?= $logoImg['title']?>">
+                    <?php } ?>
                 </a>
             </div>
         </div>

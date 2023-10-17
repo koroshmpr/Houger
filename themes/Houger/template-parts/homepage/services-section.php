@@ -1,5 +1,6 @@
 <section class="container position-relative py-5">
-    <h2 class="py-3"><a class="text-dark fs-5" href="<?= get_post_type_archive_link('services'); ?>">خدمات آژانس تبلیغات بی تی ال هوگر</a></h2>
+    <h2 class="py-3"><a class="text-dark fs-5" href="<?= get_post_type_archive_link('services'); ?>">خدمات آژانس تبلیغات
+            بی تی ال هوگر</a></h2>
     <div class="swiper service_slider">
         <div class="swiper-wrapper">
             <?php
@@ -15,7 +16,6 @@
                 $i = 0;
                 while ($loop->have_posts()) :
                     $loop->the_post();
-                    $i++;
 
                     // Retrieve the hierarchical categories
                     $category_detail = get_the_terms(get_the_ID(), 'services_categories');
@@ -33,22 +33,16 @@
                         }
                     }
                     ?>
-                    <a class="swiper-slide service-home bg-primary p-3" href="<?php the_permalink(); ?>">
-                        <div class="w-100 d-flex pb-5">
-                            <?php if (get_field('logo_type') == 'svg') { ?>
-                                <span class="col-4"><?= get_field('svg'); ?></span>
-                            <?php } elseif (get_field('logo_type') == 'img') { ?>
-                                <img class="w-auto" height="100" src="<?= get_field('img') ? get_field('img')['url'] : ''; ?>"
-                                     alt="<?= get_the_title(); ?>">
-                            <?php } ?>
-                        </div>
-                        <div class="d-flex flex-column justify-content-end text-white text-end">
-                            <p><?= get_the_title(); ?></p>
-                            <p"><?= $category_text ? $category_text : ''; ?></p>
-
-                        </div>
-                    </a>
-                <?php endwhile;
+                    <div class="swiper-slide bg-primary service-home p-3">
+                        <?php
+                        $args = array(
+                            'category' => $category_text
+                        );
+                        get_template_part('template-parts/services/services-card' , null , $args); ?>
+                    </div>
+                <?php
+                    $i++;
+                endwhile;
                 wp_reset_postdata(); // Reset post data
             endif;
             ?>

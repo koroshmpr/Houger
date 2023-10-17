@@ -8,7 +8,7 @@
         $args = array(
             'post_type' => 'clients',
             'post_status' => 'publish',
-            'order' => 'ASC',
+            'orderby' => 'rand',
             'posts_per_page' => 5,
             'ignore_sticky_posts' => true
         );
@@ -18,12 +18,9 @@
             while ($loop->have_posts()) :
                 $loop->the_post(); // Use the_post() to set up post data
                 $i++; ?>
-                <a class="" href="<?php the_permalink(); ?>">
                     <img class="object-fit ratio-1x1 img-fluid grayscale-hover" height="200"
                          src="<?php echo the_post_thumbnail_url(); ?>"
                          alt="<?php echo get_the_title(); ?>">
-                </a>
-
             <?php endwhile;
             wp_reset_postdata(); // Reset post data
         endif;

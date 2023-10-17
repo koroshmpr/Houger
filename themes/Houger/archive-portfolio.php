@@ -1,5 +1,5 @@
 <?php
-/** Template Name: blog archive */
+/** Template Name: portfolio archive */
 
 get_header(); ?>
 
@@ -7,7 +7,7 @@ get_header(); ?>
 
         <?php
         $args = array(
-            'post_type' => 'post',
+            'post_type' => 'portfolio',
             'post_status' => 'publish',
             'order' => 'DESC',
             'posts_per_page' => '-1',
@@ -21,8 +21,7 @@ get_header(); ?>
         <div class="row row-cols-md-3 row-cols-2">
             <?php while ($loop->have_posts()) :
                 $loop->the_post();
-                get_template_part('template-parts/portfolio/portfolio-card');
-
+            get_template_part('template-parts/portfolio/portfolio-card');
             endwhile;
             endif;
             wp_reset_postdata(); ?>

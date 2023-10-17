@@ -1,9 +1,24 @@
 @include media-breakpoint-up(lg) {
+  .post-card {
+    .card_detail {
+      transition: transform 0.3s ease-out;
+      transform: translate(-100% , -100%);
+    }
+    &:hover {
+      .card_detail {
+        transform: translate(0);
+      }
+    }
+  }
   .hero-slide {
     height: 100vh !important;
   }
 }
 @include media-breakpoint-down(lg) {
+  .play-size{
+    width:70px!important;
+    height:70px!important;
+  }
   .rotate {
     transition: transform 150ms linear;
     transform: rotate(90deg);

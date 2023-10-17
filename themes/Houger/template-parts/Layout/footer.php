@@ -2,7 +2,15 @@
     <div class="row justify-content-start align-items-start py-4 gap-4 gap-lg-0">
         <div class="col-lg-2 text-center">
             <a aria-label="logo-footer" href="/">
-                <?= get_field('footer_logo', 'option'); ?>
+                <?php
+                $logoType = get_field('footer_logo_type', 'option');
+                $logoSvg = get_field('footer_logo_svg', 'option');
+                $logoImg = get_field('footer_logo_image', 'option');
+                if ($logoType == 'svg'){
+                    echo $logoSvg;
+                } if ($logoType == 'img'){ ?>
+                    <img height="70" src="<?= $logoImg['url']?>" alt="<?= $logoImg['title']?>">
+                <?php } ?>
             </a>
         </div>
         <div class="col-lg-6">
