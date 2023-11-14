@@ -2,8 +2,18 @@
 /** Template Name: services archive */
 
 get_header(); ?>
-
-    <div class="container py-5 min-vh-50">
+<!--title-->
+    <section class="container py-3">
+        <?php
+        $title = 'OUR SERVICES';
+        $args = array(
+            'title' => $title
+        );
+        get_template_part('template-parts/title', null, $args);
+        ?>
+    </section>
+<!--services-->
+    <section class="container py-3 min-vh-50">
 
         <?php
         $args = array(
@@ -19,7 +29,7 @@ get_header(); ?>
 
         /* Start the Loop */
         ?>
-        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-2">
+        <div class="row row-cols-lg-2 row-cols-1 gy-3">
             <?php while ($loop->have_posts()) :
                 $loop->the_post();
 
@@ -38,8 +48,8 @@ get_header(); ?>
                         }
                     }
                 }
-                 ?>
-                <div class="px-1">
+                ?>
+                <div class="px-3">
                     <div class="bg-primary service-home p-3">
                         <?php
                         $args = array(
@@ -52,7 +62,9 @@ get_header(); ?>
                 $i++;
             endwhile;
             wp_reset_postdata();
-            endif;?>
+            endif; ?>
         </div>
-    </div>
+    </section>
+<!--contact form-->
+<?php get_template_part('template-parts/homepage/contact-section'); ?>
 <?php get_footer(); ?>

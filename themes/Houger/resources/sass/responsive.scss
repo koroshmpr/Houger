@@ -1,4 +1,13 @@
 @include media-breakpoint-up(lg) {
+  .awards{
+    .awards-image {
+      width: auto;
+      height:250px;
+    }
+    .awards-title{
+      font-size:8rem !important
+    }
+  }
   .post-card {
     .card_detail {
       transition: transform 0.3s ease-out;
@@ -15,6 +24,15 @@
   }
 }
 @include media-breakpoint-down(lg) {
+  .awards{
+    .awards-image {
+      width: 100%;
+      height:250px;
+    }
+    .awards-title{
+      font-size:5rem !important
+    }
+  }
   .play-size{
     width:70px!important;
     height:70px!important;

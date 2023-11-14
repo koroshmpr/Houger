@@ -1,65 +1,139 @@
-<?php /* Template Name: about us */
+<?php
+/** Template Name: about us */
+
 get_header(); ?>
-<section class=" py-5 shadow-sm"
-         style='
-         background: url("http://localhost:10064/wp-content/uploads/2023/10/website-image-1-ai-27.jpg");
-          background-size: cover ;
-          background-position: center;
-          height: 60vh ;
-          margin-top: 60px;'>
-    <div class="container h-100  d-flex flex-column justify-content-center align-items-center gap-5">
-        <h1 class="text-center display-2 text-white fw-bolder" data-aos="fade-up"
-            data-aos-duration="600"><?= get_the_title(); ?></h1>
-        <p class="col-lg-7 text-white text-center" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-            خونه جایی‌ که اون رو بدیهی می‌دونیم اما دقیقا همین خونه است که بر حال و رفتار و نحوه‌ی «بودن» ما اثر
-            می‌گذاره. آثار حضور ما در خونه می‌مونه و به خونه معنا می‌بخشه. خونه مأمن ست، خانواده ست، وطن ست، میراث و
-            تبار و انواع و اقسام فداکاری‌هاست. ما در پنتاهوم خونه‌تون رو همون‌طوری که می‌خواین می‌سازیم. پنتاهوم، یک
-            استودیو طراحی و ساخت مبلمانه. مــا سفارش شما رو از اولین قدم تا آخرین قدم متناسب با خونه شما، سلیقه و
-            نیازتون شخصی‌سازی می‌کنیم و با همراهی طراحان داخلی کاربلد، استادکاران ماهر و استفاده از متریال باکیفیت
-            خونه‌تون رو همون‌طوری که می‌خواین می‌سازیم.</p>
+<!--   title     -->
+<section class="container">
+    <?php
+    $title = 'ABOUT US';
+    $args = array(
+        'title' => $title
+    );
+    get_template_part('template-parts/title', null, $args);
+    ?>
+</section>
+<!--  description  -->
+<section class="container">
+    <article class="row justify-content-lg-between justify-content-center py-5">
+        <div class="col-lg-5">
+            <p class="text-justify">
+                <?= get_field('description'); ?>
+            </p>
+        </div>
+        <?php $desImage = get_field('des_image'); ?>
+        <div class="col-lg-5 p-lg-5">
+            <img src="<?= $desImage['url']; ?>" alt="<?= $desImage['title']; ?>">
+        </div>
+    </article>
+</section>
+<!--  structure   -->
+<section class="container">
+    <article class="py-5">
+        <h2 class="display-3 py-4 text-end text-primary">Structure</h2>
+        <div class="row row-cols-lg-3">
+            <?php
+            if (have_rows('structure_list')):
+                while (have_rows('structure_list')) : the_row(); ?>
+                    <div class="p-2">
+                        <div class="bg-warning p-5 h-100">
+                            <h5 class="text-primary fw-bold mb-3"><?= get_sub_field('title'); ?></h5>
+                            <?php
+                            if (have_rows('items')):
+                                // Loop through rows.
+                                while (have_rows('items')) : the_row(); ?>
+                                    <p class="mb-"><?= get_sub_field('item'); ?></p>
+                                <?php endwhile;
+                            endif; ?>
+                        </div>
+                    </div>
+                <?php endwhile;
+            endif; ?>
+        </div>
+    </article>
+</section>
+<!--  profile    -->
+<section class="container">
+    <article class="py-5 d-flex justify-content-center align-items-center">
+        <a class="col-lg-3 row gap-3 justify-content-center" href="<?= get_field('portfolio_file')['url']; ?>" download>
+            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_2" data-name="Layer 2" width="60" height="60"
+                 viewBox="0 0 86.92 86.63">
+                <defs>
+                    <style>
+                        .cls-1 {
+                            fill: #004899;
+                        }
+                    </style>
+                </defs>
+                <g id="Layer_1-2" data-name="Layer 1">
+                    <g>
+                        <path class="cls-1"
+                              d="M85.04,86.63H2.02c-1.01,0-1.88-.87-1.88-1.88V16.32c0-1.01,.87-1.88,1.88-1.88s1.88,.87,1.88,1.88V83.02H83.31V18.05H16.46c-1.01,0-1.88-.87-1.88-1.88s.87-1.88,1.88-1.88H85.04c1.01,0,1.88,.87,1.88,1.88V84.76c-.14,1.01-1.01,1.88-1.88,1.88Z"/>
+                        <path class="cls-1"
+                              d="M30.9,18.05c-.72,0-1.44-.43-1.73-1.15L24.11,3.61H3.75v12.71c0,1.01-.87,1.88-1.88,1.88s-1.88-.87-1.88-1.88V1.88C0,.87,.87,0,1.88,0H25.41c.72,0,1.44,.43,1.73,1.15l5.49,14.44c.29,.87-.14,2.02-1.01,2.31-.43,.14-.58,.14-.72,.14Z"/>
+                        <path class="cls-1"
+                              d="M85.04,30.76H2.02c-1.01,0-1.88-.87-1.88-1.88s.87-1.88,1.88-1.88H85.04c1.01,0,1.88,.87,1.88,1.88-.14,1.01-1.01,1.88-1.88,1.88Z"/>
+                        <path class="cls-1"
+                              d="M43.46,74.07c-1.01,0-1.88-.87-1.88-1.88v-28.88c0-1.01,.87-1.88,1.88-1.88s1.88,.87,1.88,1.88v28.88c0,1.01-.87,1.88-1.88,1.88Z"/>
+                        <path class="cls-1"
+                              d="M43.46,74.07c-.58,0-1.15-.29-1.44-.72l-9.1-12.71c-.58-.87-.43-1.88,.43-2.45,.87-.58,1.88-.43,2.45,.43l7.51,10.54,7.51-10.54c.58-.87,1.73-1.01,2.45-.43,.87,.58,1.01,1.73,.43,2.45l-9.1,12.71c0,.43-.58,.72-1.16,.72Z"/>
+                    </g>
+                </g>
+            </svg>
+            <p class="text-center fw-bold">Download our Portfolio</p>
+        </a>
+    </article>
+</section>
+<!--  awards    -->
+<section class="container awards">
+    <article class="py-5">
+        <h4 class="py-5 text-center text-warning fw-bold user-select-none awards-title">HOUGER AWARDS</h4>
+        <div class="row row-cols-lg-2 py-5">
+            <?php
+            if (have_rows('awards')):
+                while (have_rows('awards')) : the_row(); ?>
+                    <div class="border-bottom border-warning d-flex gap-lg-4 align-items-center py-4 justify-content-center">
+                        <div class="col-6 col-lg-4">
+                            <p class="text-primary fw-bold mb-3"><?= get_sub_field('name'); ?></p>
+                            <p class="mb-0"><?= get_sub_field('place'); ?></p>
+                            <p><?= get_sub_field('donator'); ?></p>
+                        </div>
+                        <div class="col-4 col-lg-6 text-center">
+                            <img class="object-fit awards-image" src="<?= get_sub_field('image')['url']; ?>"
+                                 alt="<?= get_sub_field('image')['title']; ?>">
+                        </div>
+                    </div>
+                <?php endwhile;
+            endif; ?>
+        </div>
+    </article>
+</section>
+<!--  certificates   -->
+<section class="py-4 bg-primary position-relative">
+    <article class="container swiper service_slider">
+        <h6 class="text-white fs-5 py-2">
+            نظر مشتریان ما در مورد خدمات هوگر
+        </h6>
+        <div class="swiper-wrapper">
+            <?php
+            $certificates = get_field('certificates');
+            if ($certificates):
+                foreach ($certificates as $certificate): ?>
+                    <div class="swiper-slide bg-primary p-3 text-center">
+                        <img class="p-1 border border-info rounded" src="<?php echo esc_url($certificate['url']); ?>"
+                             alt="<?php echo esc_url($certificate['title']); ?>">
+                    </div>
+                <?php
+                endforeach;
+            endif;
+            ?>
+        </div>
+    </article>
+    <div class="services-button-next position-absolute top-50 end-0 z-top d-inline me-n5 mt-3">
+        <i class="bi bi-chevron-left fs-2 text-dark"></i>
+    </div>
+    <div class="services-button-prev position-absolute top-50 z-top d-inline ms-n5 mt-3">
+        <i class="bi bi-chevron-right fs-2 text-dark"></i>
     </div>
 </section>
-<section class="py-5 overflow-hidden bg-primary bg-opacity-50">
-    <div class="py-4 d-flex flex-column align-items-center text-center">
-<!--        --><?php
-//        if (have_rows('products_list')):
-//    // Loop through rows.
-//    while (have_rows('products_list')) : the_row(); ?>
-        <div class="rounded-circle shadow-sm feature" data-aos-duration="500" data-aos="fade-up"><i
-                    class="bi bi-star-fill text-white"></i>
-            <div class="position-absolute end-100 top-50 border p-2 translate-middle-y me-5 shadow-sm bg-white"
-                 style="width: 500px;">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa cum, doloribus error id itaque
-                maxime neque nostrum quam suscipit. Architecto at consequuntur, expedita molestias nesciunt nulla
-                pariatur quo voluptatem?
-            </div>
-        </div>
-        <div class="overflow-hidden d-flex">
-            <div class="vr mx-auto py-5 bg-primary bg-opacity-50" data-aos="fade-down" data-aos-delay="50"></div>
-        </div>
-
-<!--     --><?php //endforeach; endif; ?><!--?>-->
-        <div class="rounded-circle shadow-sm feature" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
-            <i class="bi bi-star-fill text-white"></i>
-            <div class="position-absolute start-100 top-50 border p-2 translate-middle-y ms-5 shadow-sm bg-white"
-                 style="width: 500px;">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, adipisci aliquid asperiores cum cupiditate
-                ea nesciunt nostrum nulla, quod recusandae sit, soluta velit voluptas. A aspernatur aut commodi facilis
-                voluptate?
-            </div>
-        </div>
-        <div class="overflow-hidden d-flex">
-            <div class="vr mx-auto py-5 bg-primary bg-opacity-50" data-aos="fade-down" data-aos-delay="150"></div>
-        </div>
-
-
-        <div class="rounded-circle shadow-sm feature" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
-            <i class="bi bi-star-fill text-white"></i>
-            <div class="position-absolute end-100 top-50 border p-2 translate-middle-y me-5 shadow-sm bg-white"
-                 style="width: 500px;">
-                lorem ipsum dolor
-            </div>
-        </div>
-    </div>
-</section>
+<?php get_template_part('template-parts/homepage/contact-section'); ?>
 <?php get_footer(); ?>

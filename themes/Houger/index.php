@@ -2,30 +2,40 @@
 /** Template Name: blog archive */
 
 get_header(); ?>
-
-    <div class="container py-5 min-vh-50">
-
+    <!--title-->
+    <section class="container py-3">
         <?php
+        $title = 'NEWS';
         $args = array(
-            'post_type' => 'post',
-            'post_status' => 'publish',
-            'order' => 'DESC',
-            'posts_per_page' => '-1',
-            'ignore_sticky_posts' => true
+            'title' => $title
         );
-        $loop = new WP_Query($args);
-        if ($loop->have_posts()) :
-        $i = 0;
-        /* Start the Loop */
+        get_template_part('template-parts/title', null, $args);
         ?>
-        <div class="row row-cols-md-3 row-cols-2">
-            <?php while ($loop->have_posts()) :
-                $loop->the_post();
-                get_template_part('template-parts/portfolio/portfolio-card');
-
-            endwhile;
-            endif;
-            wp_reset_postdata(); ?>
+    </section>
+    <section class="container pt-2 pb-5">
+        <div class="row justify-content-center justify-content-lg-between">
+            <div class="col-lg-9 row row-cols-1 gap-5 justify-content-center">
+                <?php
+                $args = array(
+                    'post_type' => 'post',
+                    'post_status' => 'publish',
+                    'order' => 'DESC',
+                    'posts_per_page' => '-1',
+                    'ignore_sticky_posts' => true
+                );
+                $loop = new WP_Query($args);
+                if ($loop->have_posts()) :
+                    $i = 0;
+                    /* Start the Loop */
+                    ?>
+                    <?php while ($loop->have_posts()) :
+                    $loop->the_post();
+                    get_template_part('template-parts/blog/archive-card');
+                endwhile;
+                endif;
+                wp_reset_postdata(); ?>
+            </div>
+            <?php get_template_part('template-parts/blog/blog-sidebar'); ?>
         </div>
-    </div>
+    </section>
 <?php get_footer(); ?>

@@ -60,7 +60,7 @@
                                 'container' => false,
                                 'menu_id' => 'navbarTogglerMenu',
                                 'item_class' => 'nav-item ', // Add 'dropdown' class to top-level menu items
-                                'link_class' => 'nav-link text-primary fw-bold fs-3', // Add 'nav-link' and 'dropdown-toggle' classes to menu item links
+                                'link_class' => 'nav-link text-primary fs-3', // Add 'nav-link' and 'dropdown-toggle' classes to menu item links
                                 'depth' => 1,
                             ));
                         endif;

@@ -1,0 +1,14 @@
+.portfolio-nav-item{
+  li {
+    min-width: fit-content;
+  }
+}
+
+.Portfolio-tab {
+  background-color: #f1f1f1!important;
+  color:$primary;
+  &.active {
+    background-color:$primary!important;
+    color:#f1f1f1!important;
+  }
+}

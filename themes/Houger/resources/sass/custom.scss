@@ -21,6 +21,7 @@
 // header
 @import "custom/header";
 @import "custom/button";
+@import "custom/portfolio";
 @import "responsive";
 
 .hero-slide {
@@ -70,14 +71,69 @@
     padding:0.250rem;
   }
 }
-.sun {
-  animation : opacity 3s linear 2s infinite alternate;
-}
-@keyframes opacity {
-  from {
-    filter: opacity(1);
+.slider_animation {
+  background: linear-gradient(90deg, rgb(0, 12, 24) 50% , $primary 50%);
+  background-size: 200% !important;
+  background-position: right;
+  animation: night-day 20s linear 5s alternate forwards infinite;
+  .sun {
+    animation: opacity-sun 20s linear 5s alternate forwards infinite;
   }
-  to {
-    filter: opacity(0.2);
+  .moon {
+    opacity:0;
+    animation: opacity-moon 20s linear 5s alternate forwards infinite;
+  }
+}
+@keyframes night-day {
+  0% {
+    background-position: right;
+  }
+  45% {
+    background-position: right;
+  }
+  55% {
+    background-position: left;
+  }
+  100% {
+    background-position: left;
+  }
+}
+
+@keyframes opacity-sun {
+  0% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 0;
+  }
+  95% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+@keyframes opacity-moon {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  5% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
   }
 }
