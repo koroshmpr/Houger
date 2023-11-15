@@ -1,4 +1,7 @@
 @include media-breakpoint-up(lg) {
+  top-lg-75 {
+    top:75% !important
+  }
   .awards{
     .awards-image {
       width: auto;

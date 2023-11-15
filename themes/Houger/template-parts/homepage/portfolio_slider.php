@@ -1,5 +1,5 @@
 <section class="container py-5">
-    <h2 class="py-5"><a class="text-dark text-opacity-50 fs-5" href="<?= get_post_type_archive_link('portfolio'); ?>">آخرین پروژههای هوگر</a></h2>
+    <h2 class="py-lg-5"><a class="text-dark text-opacity-50 fs-5" href="<?= get_post_type_archive_link('portfolio'); ?>">آخرین پروژههای هوگر</a></h2>
     <div class="row row-cols-lg-3 row-cols-md-2">
         <?php
         $args = array(

@@ -12,7 +12,7 @@
 
 <body <?php body_class(); ?> >
 
-<header class="position-fixed z-10 w-100 bg-white shadow-sm">
+<header class="position-fixed z-10 w-100 bg-white shadow-sm overflow-hidden">
     <nav class="navbar py-3">
         <div class="container">
             <div class="w-100 d-flex align-items-center justify-content-between">
