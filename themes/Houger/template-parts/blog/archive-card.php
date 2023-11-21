@@ -10,7 +10,7 @@
         <div class="text-justify">
             <?= wp_trim_words(get_the_content(), 25); ?>
         </div>
-        <div class="d-flex justify-content-between pt-3 pt-lg-0">
+        <div class="d-flex justify-content-between pt-3 pt-lg-0 gap-3 gap-lg-0">
             <span class="text-primary fw-bold">
                 <svg class="me-3" xmlns="http://www.w3.org/2000/svg" id="Layer_2" data-name="Layer 2" width="30" height="30" viewBox="0 0 31.71 24.17">
                   <defs>
@@ -45,7 +45,7 @@
                 </svg>
                 <?php echo get_the_date('d  F , Y'); ?>
             </span>
-            <div class="col-2 align-items-center d-flex justify-content-between">
+            <div class="col-2 align-items-center d-flex justify-content-between gap-3">
                 <?php get_template_part('template-parts/share-button'); ?>
                 <a class="btn btn-primary p-0 border-0 rounded-circle" href="<?php the_permalink(); ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" id="Layer_2" data-name="Layer 2" width="30" height="30" viewBox="0 0 25.39 25.45">

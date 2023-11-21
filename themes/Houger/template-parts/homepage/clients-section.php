@@ -1,9 +1,9 @@
-<section class="container py-5 text-center">
+<section class="container py-lg-5 py-3 text-center">
     <div class="text-center pb-4">
         <h4 class="fs-5 fw-bold text-dark">مشتریان آژانس بی‌تی‌ال هوگر</h4>
         <p class="small">برندهایی که با آنها افتخار همکاری داشته‌ایم</p>
     </div>
-    <div class="row row-cols-3 row-cols-lg-5 justify-content-center align-items-center overflow-scroll px-lg-5">
+    <div class="row row-cols-2 row-cols-lg-5 justify-content-center align-items-center overflow-scroll px-lg-5">
         <?php
         $args = array(
             'post_type' => 'clients',

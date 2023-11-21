@@ -55,4 +55,36 @@ document.addEventListener('DOMContentLoaded', function () {
             prevEl: '.services-button-prev',
         },
     })
+    const portfolio = new Swiper('.portfolio-swiper', {
+        // Optional parameters
+        loop: false,
+        effect: 'slide',
+        speed: 500,
+        loopFillGroupBlank: false,
+        grabCursor: true,
+        slidesPerView: 1,
+        centeredSlides: true,
+        slideNextClass: 'scaled-down',
+        slidePrevClass: 'scaled-down',
+        navigation: {
+            nextEl: '.swiper-next',
+            prevEl: '.swiper-prev',
+        },
+        disableOnInteraction: false,
+        pagination: {
+            el: '.swiper-paginate-portfolio',
+            type: 'fraction',
+            formatFractionCurrent: function (number) {
+                return ('0' + number).slice(-2);
+            },
+            formatFractionTotal: function (number) {
+                return ('0' + number).slice(-2);
+            },
+            renderFraction: function (currentClass, totalClass) {
+                return '<span class="' + currentClass + '"></span>' +
+                    ' / ' +
+                    '<span class="' + totalClass + '"></span>';
+            }
+        },
+    })
 })

@@ -1,4 +1,4 @@
-<section class="mt-5 pt-lg-5 position-relative">
+<section class="mt-lg-5 pt-2 pt-lg-5 position-relative">
     <video id="video-frontPage" class="w-100" poster="<?= get_field('video_poster')['url'];?>">
         <source src="<?= get_field('video')['url'];?>" type="video/mp4">
     </video>

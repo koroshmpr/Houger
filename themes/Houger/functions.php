@@ -7,6 +7,7 @@ function houger_scripts()
     //    <!-- Icons -->
     wp_enqueue_style('bootstrap-icons', get_template_directory_uri() . '/public/fonts/bootstrap/bootstrap-icons.css');
     wp_enqueue_style('font', get_template_directory_uri() . '/public/fonts/YekanBakh/fontface.css', array());
+    wp_enqueue_style('font', get_template_directory_uri() . '/public/fonts/Sofia/fontface.css', array());
     wp_enqueue_style('style', get_stylesheet_directory_uri() . '/public/css/style.css', array());
 //    wp_style_add_data('style', 'rtl', 'replace');
     wp_enqueue_script('main-js', get_template_directory_uri() . '/public/js/app.js', array(), true);
@@ -207,6 +208,10 @@ function custom_post_type_args( $args, $post_type ) {
         $args['rewrite']['with_front'] = false;
     }
     if ( 'services' === $post_type ) {
+        // Set the with_front parameter to false
+        $args['rewrite']['with_front'] = false;
+    }
+    if ( 'clients' === $post_type ) {
         // Set the with_front parameter to false
         $args['rewrite']['with_front'] = false;
     }

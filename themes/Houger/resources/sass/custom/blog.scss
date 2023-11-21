@@ -1,0 +1,28 @@
+.date-category {
+  position: relative;
+  &:before {
+    transition: width 0.3s ease-out;
+    position: absolute;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    content: '';
+    display: block;
+    left: 0;
+    background-color: $primary;
+  }
+  &:hover , &.active {
+    &:before {
+      width: 100%;
+    }
+  }
+}
+.social-icon{
+  color: $info;
+  transition: all 0.3s ease-out;
+  &:hover {
+    color:$primary;
+    transform:scale(1.15) translateY(-3px);
+    margin: 0 1px;
+  }
+}

@@ -1,14 +1,14 @@
 <?php get_header(); ?>
 
-    <section class="container py-3">
+    <section class="container py-3 min-vh-100">
         <div class="w-100 py-3">
             <form class="search-form d-flex gap-1 align-items-center" method="get"
                   action="<?php echo esc_url(home_url('/')); ?>">
                 <div class="input-group">
                     <input id="search-form" type="search" name="s"
-                           class="form-control text-primary bg-white bg-opacity-10"
+                           class="form-control text-primary bg-white bg-opacity-10 py-3"
                            placeholder="جستجو..." value="<?= the_search_query(); ?>" aria-label="Search">
-                    <button type="submit" class="btn bg-primary text-white d-flex align-items-center rounded-end"
+                    <button type="submit" class="btn bg-primary text-white d-flex align-items-center rounded-end px-5"
                             aria-label="Search">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                              class="bi bi-search" viewBox="0 0 16 16">

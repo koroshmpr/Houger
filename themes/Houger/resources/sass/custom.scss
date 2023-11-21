@@ -20,8 +20,9 @@
 
 // header
 @import "custom/header";
-@import "custom/button";
+//@import "custom/button";
 @import "custom/portfolio";
+@import "custom/blog";
 @import "responsive";
 
 .hero-slide {
@@ -46,7 +47,6 @@
 }
 //paggination
 .page-numbers {
-  font-size:1.4rem;
   list-style: none;
   display: flex;
   justify-content: center;
@@ -54,6 +54,7 @@
   padding: 4px;
   gap:0 6px ;
   a.page-numbers .page-number {
+    font-size:1.4rem !important;
     transition:color 0.3s linear;
     color: rgb(89 89 89 / 55%);
     &:hover {
@@ -63,15 +64,16 @@
   a.next , a.prev {
     transition:all 0.3s linear;
     &:hover {
-      transform:scale(1.2)
+      transform:scale(1.2);
     }
   }
   span.page-numbers.current .page-number , a.next , a.prev  {
+    font-size:1.4rem !important;
     color:$primary;
   }
 }
 .service-home {
-  height: 270px !important;
+  height: 270px;
 }
 
 .services-button-prev, .services-button-next {
@@ -95,7 +97,7 @@
 }
 .gform-body {
   .gform_fields {
-    grid-row-gap:15px!important
+    grid-row-gap:15px!important;
   }
   input:not([type="submit"]) , textarea {
   border: 1px solid #0000003b!important;

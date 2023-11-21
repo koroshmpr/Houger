@@ -4,18 +4,18 @@
     <div class="swiper service_slider">
         <div class="swiper-wrapper">
             <?php
-            $args = array(
+            $service = array(
                 'post_type' => 'services',
                 'post_status' => 'publish',
                 'order' => 'ASC',
-                'posts_per_page' => -1,
+                'posts_per_page' => 5,
                 'ignore_sticky_posts' => true
             );
-            $loop = new WP_Query($args);
-            if ($loop->have_posts()) :
+            $services = new WP_Query($service);
+            if ($services->have_posts()) :
                 $i = 0;
-                while ($loop->have_posts()) :
-                    $loop->the_post();
+                while ($services->have_posts()) :
+                    $services->the_post();
 
                     // Retrieve the hierarchical categories
                     $category_detail = get_the_terms(get_the_ID(), 'services_categories');
@@ -35,8 +35,10 @@
                     ?>
                     <div class="swiper-slide bg-primary service-home p-3">
                         <?php
+                        $modalDetail = 'data-bs-toggle="modal" data-bs-target="#modal-' .  get_the_ID() . '"';
                         $args = array(
-                            'category' => $category_text
+                            'category' => $category_text,
+                            'modal' => $modalDetail
                         );
                         get_template_part('template-parts/services/services-card' , null , $args); ?>
                     </div>
@@ -55,3 +57,8 @@
         <i class="bi bi-chevron-right fs-2 text-dark"></i>
     </div>
 </section>
+<?php $args_modal = array(
+    'services' => $services,
+);
+get_template_part('template-parts/services/services-modal', null, $args_modal);
+?>

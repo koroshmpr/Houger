@@ -20,10 +20,12 @@ get_header(); ?>
                 <?= get_field('description'); ?>
             </p>
         </div>
-        <?php $desImage = get_field('des_image'); ?>
+        <?php $desImage = get_field('des_image');
+        if($desImage) {?>
         <div class="col-lg-5 p-lg-5">
             <img src="<?= $desImage['url']; ?>" alt="<?= $desImage['title']; ?>">
         </div>
+        <?php }?>
     </article>
 </section>
 <!--  structure   -->
@@ -95,7 +97,7 @@ get_header(); ?>
             if (have_rows('awards')):
                 while (have_rows('awards')) : the_row(); ?>
                     <div class="border-bottom border-warning d-flex gap-lg-4 align-items-center py-4 justify-content-center">
-                        <div class="col-6 col-lg-4">
+                        <div class="col-6 col-lg-4 text-end">
                             <p class="text-primary fw-bold mb-3"><?= get_sub_field('name'); ?></p>
                             <p class="mb-0"><?= get_sub_field('place'); ?></p>
                             <p><?= get_sub_field('donator'); ?></p>

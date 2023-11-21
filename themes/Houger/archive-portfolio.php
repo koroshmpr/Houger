@@ -1,8 +1,8 @@
 <?php
 /** Template Name: portfolio archive */
-
+$pageId = 125;
 get_header(); ?>
-<!--title-->
+    <!--title-->
     <section class="container py-3">
         <?php
         $title = 'PROJECTS';
@@ -12,7 +12,7 @@ get_header(); ?>
         get_template_part('template-parts/title', null, $args);
         ?>
     </section>
-<!--projects-->
+    <!--projects-->
     <section class="pb-5 container min-vh-100">
         <?php
         $portfolio = array(
@@ -33,13 +33,15 @@ get_header(); ?>
                 'order' => 'ASC'
             );
             $cats = get_terms($args_cat);
-            $active_tab = get_field('active', 125, 'portfolio_categories');
+            $active_tab = get_field('active', $pageId, 'portfolio_categories');
             foreach ($cats as $key => $cat) {
                 ?>
                 <li class="nav-item" role="presentation">
                     <button
                             class="px-lg-4 h-100 py-lg-3 Portfolio-tab fs-6 rounded-0 lazy text-center border-0 d-inline-block w-100 nav-link
-                        <?php if ($cat->term_id === $active_tab->term_id) {echo 'active'; }; ?>"
+                        <?php if ($cat->term_id === $active_tab->term_id) {
+                                echo 'active';
+                            }; ?>"
                             id="cat-<?php echo $cat->term_id ?>-tab"
                             data-bs-toggle="tab"
                             data-bs-target="#cat-<?php echo $cat->term_id ?>"
@@ -114,17 +116,17 @@ get_header(); ?>
                                         </span>
                                         <?php } ?>
                                     </div>
-                                        <!--  showing year / brand name and client   -->
-                                        <div class="mt-4 col-lg-6 d-flex flex-column align-items-start gap-3 order-3 order-lg-2">
-                                            <div class="d-inline-flex gap-2 align-items-center w-100 pb-2">
-                                                <div class="text-primary fs-5 fw-medium d-flex gap-2">
-                                                    <span><?php the_field('brand_in_english'); ?></span>
-                                                    <span><?= get_the_title(); ?></span>
-                                                    /
-                                                </div>
-                                                <h3 class="mb-0 product-placeholder"><?php echo esc_html(get_field('subject')); ?></h3>
+                                    <!--  showing year / brand name and client   -->
+                                    <div class="mt-4 col-lg-6 d-flex flex-column align-items-start gap-3 order-3 order-lg-2">
+                                        <div class="d-inline-flex gap-2 align-items-center w-100 pb-2">
+                                            <div class="text-primary fs-5 fw-medium d-flex gap-2">
+                                                <span><?php the_field('brand_in_english'); ?></span>
+                                                <span><?= get_the_title(); ?></span>
+                                                /
                                             </div>
+                                            <h3 class="mb-0 product-placeholder"><?php echo esc_html(get_field('subject')); ?></h3>
                                         </div>
+                                    </div>
                                 </div>
 
                             <?php endwhile;
@@ -145,4 +147,10 @@ get_header(); ?>
     </section>
     <!--contact form-->
 <?php get_template_part('template-parts/homepage/contact-section'); ?>
-<?php get_footer(); ?>
+<?php get_footer();
+
+$args_portfolio_modal = array(
+    'portfolio' => $loop_portfolio,
+);
+get_template_part('template-parts/portfolio/portfolio-modal', null, $args_portfolio_modal);
+?>

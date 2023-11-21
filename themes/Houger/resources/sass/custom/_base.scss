@@ -20,6 +20,9 @@ body {
   direction: ltr;
   padding: 0!important;
 }
+.sofia{
+  font-family: Sofia!important;
+}
 .top-75 {
   top:75%
 }
@@ -29,17 +32,21 @@ body {
 .min-vh-50 {
   min-height: 50vh;
 }
+// modal
+.blur.show {
+  backdrop-filter: blur(10px);
+}
 body.modal-open {
   .product-card  {
     animation-name: unset!important;
   }
-  height: 100vh;
+  //height: 100vh;
   overflow-y: hidden;
 }
 .overflow-scroll-y {
   overflow-y: scroll!important;
 }
-overflow-x-scroll{
+.overflow-x-scroll{
   overflow-x: scroll!important;
 }
 .text-justify {
