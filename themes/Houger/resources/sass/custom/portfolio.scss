@@ -38,3 +38,33 @@
     }
   }
 }
+.portfolio-nav-item {
+  .has-subcategories {
+    .portfolio-sub {
+      transition: all 0.3s linear;
+      transform: translateY(-10px);
+      opacity: 0;
+      visibility: hidden;
+    }
+    &:hover {
+      .portfolio-sub {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
+.portCat-button-next , .portCat-button-prev {
+  transition: all 0.5s linear;
+  &:hover {
+    transform: scale(1.15);
+  }
+}
+.swiper-button-disabled {
+  opacity:0.5;
+}
+//.portfolio-nav-item {
+//  overflow-x: scroll;
+//  overflow-y: visible;
+//}

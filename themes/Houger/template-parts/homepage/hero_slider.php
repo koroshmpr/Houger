@@ -5,7 +5,7 @@
         <video class="img-fluid h-100 w-100" autoplay muted loop>
             <source src="<?= $video['url']; ?>" src="<?= $video['url']; ?>">
         </video>
-        <div class="position-absolute top-50 start-75 col-10 col-lg-3 translate-middle-x text-end text-white start-lg-50">
+        <div class="position-absolute top-50 start-75 col-10 col-lg-4 translate-middle-x text-end text-white start-lg-50">
             <p class="mb-1" data-aos="fade-right" data-aos-delay="200"><?= get_field('slogan_description'); ?></p>
             <h1 class="mb-0" data-aos="fade-right" data-aos-delay="300"><?= get_field('slogan'); ?></h1>
             <div class="mt-lg-3" data-aos="fade-right" data-aos-delay="400">

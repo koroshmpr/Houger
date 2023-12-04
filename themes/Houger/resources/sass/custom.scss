@@ -23,6 +23,7 @@
 //@import "custom/button";
 @import "custom/portfolio";
 @import "custom/blog";
+@import "custom/forms";
 @import "responsive";
 
 .hero-slide {
@@ -83,7 +84,17 @@
     transform: scale(1.2);
   }
 }
+.grayscale-img-hover {
+  transition: all 120ms linear;
+  filter: invert(0.4);
+  opacity: 0.5;
 
+  &:hover {
+    transform: translateY(-5px);
+    filter: invert(0.6);
+    opacity: 1;
+  }
+}
 .grayscale-hover {
   transition: all 120ms linear;
   filter: grayscale(1);
@@ -95,19 +106,7 @@
     opacity: 1;
   }
 }
-.gform-body {
-  .gform_fields {
-    grid-row-gap:15px!important;
-  }
-  input:not([type="submit"]) , textarea {
-  border: 1px solid #0000003b!important;
-  padding: 25px 12px!important;
-  border-radius: 0!important;
-    &::placeholder {
-      color:#1e1e1e87!important
-    }
-}
-}
+
 .hover-border {
   transition: padding 150ms linear;
   &:hover {

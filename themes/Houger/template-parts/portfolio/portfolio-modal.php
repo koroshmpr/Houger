@@ -15,9 +15,9 @@ if ($args['portfolio']->have_posts()) {
                                 <?php
                                 if (have_rows('gallery_slider')):
                                     while (have_rows('gallery_slider')) : the_row(); ?>
-                                        <div class="swiper-slide">
+                                        <div class="swiper-slide my-auto">
                                             <?php if (get_sub_field('file_type') == 'image') { ?>
-                                                <img class="w-100"
+                                                <img class="w-100 object-fit" style="max-height: 80vh;"
                                                      src="<?php echo get_sub_field('item_image')['url']; ?>"
                                                      alt="<?php echo get_sub_field('item_image')['title']; ?>">
                                             <?php } ?>

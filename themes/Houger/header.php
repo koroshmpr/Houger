@@ -12,7 +12,7 @@
 
 <body <?php body_class(); ?> >
 
-<header class="position-fixed z-10 w-100 bg-white shadow-sm overflow-hidden">
+<header id="mainHeader" class="position-fixed z-10 w-100 bg-white shadow-sm overflow-hidden">
     <?php get_template_part('template-parts/Layout/header'); ?>
 </header>
 <main>

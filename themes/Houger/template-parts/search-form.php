@@ -1,4 +1,4 @@
-<button class="btn text-primary d-none d-lg-inline" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSearch" aria-controls="offcanvasTop">
+<button class="btn text-primary d-none d-lg-inline fs-6" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSearch" aria-controls="offcanvasTop">
     <i class="bi bi-search"></i>
 </button>
 

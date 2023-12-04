@@ -57,7 +57,7 @@ get_header(); ?>
                             'category' => $category_text,
                             'modal' => $modalDetail
                         );
-                        get_template_part('template-parts/services/services-card', null, $args); ?>
+                        get_template_part('template-parts/services/archive-card', null, $args); ?>
                     </div>
                 </div>
                 <?php
@@ -67,11 +67,10 @@ get_header(); ?>
             endif; ?>
         </div>
     </section>
-<!--contact form-->
-<?php get_template_part('template-parts/homepage/contact-section'); ?>
 <?php get_footer(); ?>
 <?php
 $args_modal = array(
+    'post_data' => get_post(),
     'services' => $services,
 );
 get_template_part('template-parts/services/services-modal', null, $args_modal);

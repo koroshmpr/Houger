@@ -8,6 +8,7 @@
                 'post_type' => 'services',
                 'post_status' => 'publish',
                 'order' => 'ASC',
+                'orderby' => 'rand',
                 'posts_per_page' => 5,
                 'ignore_sticky_posts' => true
             );
@@ -59,6 +60,7 @@
 </section>
 <?php $args_modal = array(
     'services' => $services,
+    'category' => $category_text,
 );
 get_template_part('template-parts/services/services-modal', null, $args_modal);
 ?>

@@ -16,9 +16,9 @@ get_header(); ?>
 <section class="container">
     <article class="row justify-content-lg-between justify-content-center py-5">
         <div class="col-lg-5">
-            <p class="text-justify">
+            <article class="text-justify">
                 <?= get_field('description'); ?>
-            </p>
+            </article>
         </div>
         <?php $desImage = get_field('des_image');
         if($desImage) {?>
@@ -96,14 +96,14 @@ get_header(); ?>
             <?php
             if (have_rows('awards')):
                 while (have_rows('awards')) : the_row(); ?>
-                    <div class="border-bottom border-warning d-flex gap-lg-4 align-items-center py-4 justify-content-center">
-                        <div class="col-6 col-lg-4 text-end">
-                            <p class="text-primary fw-bold mb-3"><?= get_sub_field('name'); ?></p>
+                    <div class="border-bottom border-warning d-flex gap-2 gap-lg-4 align-items-center py-3 py-lg-4 justify-content-center">
+                        <div class="col-4 col-lg-4 text-end">
+                            <p class="text-primary fw-bold mb-3 fs-4"><?= get_sub_field('name'); ?></p>
                             <p class="mb-0"><?= get_sub_field('place'); ?></p>
                             <p><?= get_sub_field('donator'); ?></p>
                         </div>
-                        <div class="col-4 col-lg-6 text-center">
-                            <img class="object-fit awards-image" src="<?= get_sub_field('image')['url']; ?>"
+                        <div class="col-7 col-lg-6 text-center">
+                            <img class="awards-image" src="<?= get_sub_field('image')['url']; ?>"
                                  alt="<?= get_sub_field('image')['title']; ?>">
                         </div>
                     </div>
@@ -114,11 +114,11 @@ get_header(); ?>
 </section>
 <!--  certificates   -->
 <section class="py-4 bg-primary position-relative">
-    <article class="container swiper service_slider">
+    <article class="container swiper service_slider overflow-visible">
         <h6 class="text-white fs-5 py-2">
             نظر مشتریان ما در مورد خدمات هوگر
         </h6>
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper overflow-hidden">
             <?php
             $certificates = get_field('certificates');
             if ($certificates):
@@ -132,13 +132,19 @@ get_header(); ?>
             endif;
             ?>
         </div>
+        <div class="services-button-next position-absolute top-50 end-0 z-top d-inline me-n5 mt-3 fs-2">
+<!--            <i class="bi bi-chevron-left"></i>-->
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-left text-info" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+            </svg>
+        </div>
+        <div class="services-button-prev position-absolute top-50 z-top d-inline ms-n5 mt-3 fs-2">
+<!--            <i class="bi bi-chevron-right "></i>-->
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-right text-info" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+            </svg>
+        </div>
     </article>
-    <div class="services-button-next position-absolute top-50 end-0 z-top d-inline me-n5 mt-3">
-        <i class="bi bi-chevron-left fs-2 text-dark"></i>
-    </div>
-    <div class="services-button-prev position-absolute top-50 z-top d-inline ms-n5 mt-3">
-        <i class="bi bi-chevron-right fs-2 text-dark"></i>
-    </div>
+
 </section>
-<?php get_template_part('template-parts/homepage/contact-section'); ?>
 <?php get_footer(); ?>

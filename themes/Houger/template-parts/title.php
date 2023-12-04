@@ -1,4 +1,4 @@
-<h1 class="display-1 text-primary pt-lg-5 py-3 text-end sofia" data-aos="fade-right">
+<h1 class="display-1 text-primary pt-lg-5 py-3 text-end sofia fw-bold" data-aos="fade-right">
     <?= $args['title'];?>
 </h1>
 <?php

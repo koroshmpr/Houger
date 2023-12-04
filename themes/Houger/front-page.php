@@ -12,6 +12,6 @@ get_header(); ?>
     get_template_part('template-parts/homepage/services-section');
     get_template_part('template-parts/homepage/clients-section');
     get_template_part('template-parts/homepage/post-grid');
-    get_template_part('template-parts/homepage/contact-section');?>
-<?php }
+//    get_template_part('template-parts/homepage/contact-section');
+}
 get_footer();

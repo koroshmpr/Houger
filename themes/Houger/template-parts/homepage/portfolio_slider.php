@@ -8,7 +8,7 @@
         $portfolio = array(
             'post_type' => 'portfolio',
             'post_status' => 'publish',
-            'order' => 'ASC',
+            'order' => 'DESC',
             'posts_per_page' => 6,
             'ignore_sticky_posts' => true
         );

@@ -1,5 +1,10 @@
-<div class="service-home row" <?= $args['modal'] ?? ''; ?>>
-    <div class="w-100 d-flex pb-5">
+<div class="service-archive d-flex p-4 justify-content-between" <?= $args['modal'] ?? ''; ?>>
+    <div class="d-flex flex-column text-white text-start">
+        <p><?= get_the_title(); ?></p>
+        <p><?= $args['category'] ??  ''; ?></p>
+
+    </div>
+    <div class="">
         <?php if (get_field('logo_type') == 'svg') { ?>
             <span class="col-4"><?= get_field('svg'); ?></span>
         <?php } elseif (get_field('logo_type') == 'img') { ?>
@@ -7,8 +12,5 @@
                  src="<?= get_field('img') ? get_field('img')['url'] : ''; ?>"
                  alt="<?= get_the_title(); ?>">
         <?php } ?>
-    </div>
-    <div class="d-flex flex-column justify-content-end text-white text-end">
-        <p class="mb-xl-4"><?= get_the_title(); ?></p>
     </div>
 </div>
