@@ -6,7 +6,7 @@ get_header(); ?>
     <!--title-->
     <section class="container py-3">
         <?php
-        $title = 'PROJECTS';
+        $title = 'نمونه کارها';
         $args = array(
             'title' => $title
         );
@@ -64,13 +64,17 @@ get_header(); ?>
                                 aria-controls="cat-<?php echo $cat->term_id ?>"
                                 aria-selected="true">
                             <?php echo $cat->name; ?>
-                            <?php if ($has_subcategories) : ?>
-                                <ul class="portfolio-sub position-absolute top-100 list-unstyled w-100 mx-auto row gap-2 start-0 bg-primary text-white border-top border-2 border-white">
+                            <?php
+                            $i = 5;
+                            if ($has_subcategories) : ?>
+                                <ul class="portfolio-sub position-absolute top-100 overflow-hidden list-unstyled w-100 mx-auto row gap-2 start-0 bg-primary text-white border-top border-2 border-white">
                                     <?php foreach ($subcategories as $subcategory) : ?>
-                                        <li class="border-bottom border-info border-1 py-2">
+                                        <li class="border-bottom border-info border-1 py-2" data-aos="fade-down" data-aos-delay="<?= $i ?>0">
                                             <?php echo $subcategory->name; ?>
                                         </li>
-                                    <?php endforeach; ?>
+                                    <?php
+                                    $i = $i + 5;
+                                    endforeach; ?>
                                 </ul>
                             <?php endif; ?>
                         </button>
@@ -158,7 +162,7 @@ get_header(); ?>
                                                 <span><?= get_the_title(); ?></span>
                                                 /
                                             </div>
-                                            <h3 class="mb-0 product-placeholder"><?php echo esc_html(get_field('subject')); ?></h3>
+                                            <h3 class="mb-0 text-primary fs-5 product-placeholder"><?php echo esc_html(get_field('subject')); ?></h3>
                                             <a class="btn btn-primary p-0 border-0 rounded-circle" href="<?php the_permalink(); ?>">
                                                 <svg xmlns="http://www.w3.org/2000/svg" id="Layer_2" data-name="Layer 2" width="25" height="25" viewBox="0 0 25.39 25.45">
                                                     <defs>
@@ -199,7 +203,32 @@ get_header(); ?>
 
             <?php } ?>
         </div>
-
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                let portfolioTabs = document.querySelectorAll('.Portfolio-tab');
+                function addAosAnimate(tab) {
+                    let listItems = tab.querySelectorAll('li');
+                    listItems.forEach(function (item) {
+                        item.classList.add('aos-animate');
+                    });
+                }
+                function removeAosAnimate(tab) {
+                    let listItems = tab.querySelectorAll('li');
+                    listItems.forEach(function (item) {
+                        item.classList.remove('aos-animate');
+                    });
+                }
+                portfolioTabs.forEach(function (tab) {
+                    removeAosAnimate(tab);
+                    tab.addEventListener('mouseenter', function () {
+                        addAosAnimate(tab);
+                    });
+                    tab.addEventListener('mouseleave', function () {
+                        removeAosAnimate(tab);
+                    });
+                });
+            });
+        </script>
     </section>
 </div>
 <?php get_footer();

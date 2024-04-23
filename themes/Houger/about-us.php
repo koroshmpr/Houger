@@ -5,7 +5,7 @@ get_header(); ?>
 <!--   title     -->
 <section class="container">
     <?php
-    $title = 'ABOUT US';
+    $title = 'درباره ما';
     $args = array(
         'title' => $title
     );
@@ -31,7 +31,7 @@ get_header(); ?>
 <!--  structure   -->
 <section class="container">
     <article class="py-5">
-        <h2 class="display-3 py-4 text-end text-primary">Structure</h2>
+        <h2 class="display-5 py-4 text-primary">ساختار سازمانی</h2>
         <div class="row row-cols-lg-3">
             <?php
             if (have_rows('structure_list')):
@@ -124,7 +124,8 @@ get_header(); ?>
             if ($certificates):
                 foreach ($certificates as $certificate): ?>
                     <div class="swiper-slide bg-primary p-3 text-center">
-                        <img class="p-1 border border-info rounded" src="<?php echo esc_url($certificate['url']); ?>"
+                        <img class="p-1 border border-info rounded certificate"  type="button" data-bs-toggle="modal" data-bs-target="#myModal"
+                             data-link="<?php echo esc_url($certificate['url']); ?>" src="<?php echo esc_url($certificate['url']); ?>"
                              alt="<?php echo esc_url($certificate['title']); ?>">
                     </div>
                 <?php
@@ -132,19 +133,42 @@ get_header(); ?>
             endif;
             ?>
         </div>
-        <div class="services-button-next position-absolute top-50 end-0 z-top d-inline me-n5 mt-3 fs-2">
-<!--            <i class="bi bi-chevron-left"></i>-->
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-left text-info" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
-            </svg>
+        <div class="services-button-next position-absolute top-50 end-0 z-top d-inline me-n5 mt-3">
+            <i class="bi bi-chevron-left fs-2 text-white"></i>
         </div>
-        <div class="services-button-prev position-absolute top-50 z-top d-inline ms-n5 mt-3 fs-2">
-<!--            <i class="bi bi-chevron-right "></i>-->
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-right text-info" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-            </svg>
+        <div class="services-button-prev position-absolute top-50 z-top d-inline ms-n5 mt-3">
+            <i class="bi bi-chevron-right fs-2 text-white"></i>
         </div>
     </article>
-
 </section>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let certificates = document.querySelectorAll('.certificate');
+        certificates.forEach(function (certificate) {
+            certificate.addEventListener('click', function (e) {
+                e.preventDefault();
+                let imageId = certificate.getAttribute('data-link');
+                let modal = document.getElementById('myModal');
+                let modalBody = modal.querySelector('.modal-body');
+                let modalImage = modalBody.querySelector('img');
+                modalImage.src = imageId;
+                modal.classList.add('show');
+                modal.addEventListener('click', function (event) {
+                    if (event.target === modal) {
+                        modal.classList.remove('show');
+                    }
+                });
+            });
+        });
+    });
+</script>
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="backdrop-filter: blur(8px)">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content bg-white bg-opacity-10 p-lg-3 border-white border-opacity-25 rounded-0">
+            <div class="modal-body text-center overflow-hidden">
+                <img class="img-fluid position-relative product-image__modal" style="height: 70vh;" src="" alt="certificates">
+            </div>
+        </div>
+    </div>
+</div>
 <?php get_footer(); ?>

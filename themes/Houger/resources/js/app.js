@@ -5,9 +5,15 @@ import Swiper from 'swiper/bundle';
 // import 'swiper/css/bundle';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
+import VanillaTilt from 'vanilla-tilt';
 
 document.addEventListener('DOMContentLoaded', function () {
+    // tilting the modal card
+    VanillaTilt.init(document.querySelectorAll(".glass-card"), {
+        max: 1,
+        speed: 100,
+        reset: false,
+    });
     // Select your header element (replace 'your-header-id' with the actual ID or class of your header)
     var header = document.getElementById('mainHeader');
 
@@ -42,17 +48,18 @@ document.addEventListener('DOMContentLoaded', function () {
     if ($('body').hasClass('home')) {
         const video = document.getElementById('video-frontPage');
         const playButton = document.getElementById('play-button');
-
-        playButton.addEventListener('click', function() {
-            if (video.paused) {
-                video.setAttribute('controls' , 'true')
-                video.play();
-                playButton.style.display = 'none'; // Hide the play button when the video is playing
-            } else {
-                video.pause();
-                playButton.style.display = 'block'; // Show the play button when the video is paused
-            }
-        });
+        if (video) {
+            playButton.addEventListener('click', function () {
+                if (video.paused) {
+                    video.setAttribute('controls', 'true')
+                    video.play();
+                    playButton.style.display = 'none'; // Hide the play button when the video is playing
+                } else {
+                    video.pause();
+                    playButton.style.display = 'block'; // Show the play button when the video is paused
+                }
+            });
+        }
     }
     const heroSilder = new Swiper('.hero_slider', {
         direction: 'horizontal',
@@ -128,4 +135,22 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         },
     })
+    // Function to stop the video when the modal is closed
+    function stopVideoOnModalClose(modal) {
+        const videos = modal.querySelectorAll("video");
+        videos.forEach(video => {
+            video.pause();
+            video.currentTime = 0;
+        });
+    }
+
+    // Find all modals dynamically
+    const modals = document.querySelectorAll(".portfolio-modal");
+
+    // Attach event to each modal when it's hidden (closed)
+    modals.forEach(modal => {
+        modal.addEventListener("hidden.bs.modal", function () {
+            stopVideoOnModalClose(modal);
+        });
+    });
 })

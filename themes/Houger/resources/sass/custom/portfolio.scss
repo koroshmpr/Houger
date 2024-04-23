@@ -7,7 +7,7 @@
 .Portfolio-tab {
   background-color: #f1f1f1!important;
   color:$primary;
-  &.active {
+  &.active , &:hover {
     background-color:$primary!important;
     color:#f1f1f1!important;
   }
@@ -45,12 +45,18 @@
       transform: translateY(-10px);
       opacity: 0;
       visibility: hidden;
+      li {
+        display: none;
+      }
     }
     &:hover {
       .portfolio-sub {
         transform: translateY(0);
         opacity: 1;
         visibility: visible;
+        li {
+          display: block;
+        }
       }
     }
   }

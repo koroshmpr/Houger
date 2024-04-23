@@ -1,0 +1,14 @@
+.service-home {
+  background-size: 100% 200% !important;
+  background: linear-gradient(180deg, var(--bs-primary) 50%, var(--bs-secondary) 50%) top;
+  &:hover {
+    background-position: 0 30% !important;
+      .title {
+        color:$primary;
+        font-weight: bold!important;
+    }
+  }
+}
+.title , .service-home {
+  @extend .t-bounce;
+}

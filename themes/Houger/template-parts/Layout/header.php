@@ -9,11 +9,11 @@
                 if ($menu) :
                     wp_nav_menu(array(
                         'theme_location' => 'headerMenuLocation',
-                        'menu_class' => 'list-unstyled gap-3 mb-0 align-items-center flex-wrap d-flex',
+                        'menu_class' => 'desktop-menu list-unstyled gap-4 mb-0 align-items-center flex-wrap d-flex',
                         'container' => false,
                         'menu_id' => 'navbarTogglerMenu',
                         'item_class' => 'nav-item ', // Add 'dropdown' class to top-level menu items
-                        'link_class' => 'nav-link text-dark', // Add 'nav-link' and 'dropdown-toggle' classes to menu item links
+                        'link_class' => 'nav-link text-dark position-relative p-0', // Add 'nav-link' and 'dropdown-toggle' classes to menu item links
                         'depth' => 1,
                     ));
                 endif;

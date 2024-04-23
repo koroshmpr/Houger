@@ -6,7 +6,7 @@ get_header(); ?>
 <!--title-->
 <section class="container py-3">
     <?php
-    $title = 'NEWS';
+    $title = 'بلاگ و اخبار';
     $args = array(
         'title' => $title
     );

@@ -1,4 +1,4 @@
-<div class="service-home row" <?= $args['modal'] ?? ''; ?>>
+<div class="service-home cursor-pointer row" <?= $args['modal'] ?? ''; ?>>
     <div class="w-100 d-flex pb-5">
         <?php if (get_field('logo_type') == 'svg') { ?>
             <span class="col-4"><?= get_field('svg'); ?></span>
@@ -9,6 +9,6 @@
         <?php } ?>
     </div>
     <div class="d-flex flex-column justify-content-end text-white text-end">
-        <p class="mb-xl-4"><?= get_the_title(); ?></p>
+        <p class="title mb-xl-4"><?= get_the_title(); ?></p>
     </div>
 </div>

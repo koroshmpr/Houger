@@ -75,3 +75,9 @@
     padding:0 !important
   }
 }
+.validation_message ,#gform_1_validation_container{
+  display: none;
+}
+.gfield_error {
+  border: 1px solid red;
+}

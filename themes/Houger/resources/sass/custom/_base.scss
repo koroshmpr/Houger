@@ -92,3 +92,9 @@ body.modal-open {
 ::-webkit-scrollbar-thumb {
   background: $primary;
 }
+.cursor-pointer {
+  cursor: pointer;
+}
+.t-bounce {
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}

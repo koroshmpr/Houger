@@ -1,15 +1,17 @@
 <section class="container py-lg-5 py-3">
-    <h2 class="py-lg-5 pb-3 text-center text-lg-start">
-        <a class="text-dark text-opacity-50 fs-5"
-           href="<?= get_post_type_archive_link('portfolio'); ?>">آخرین پروژههای هوگر</a>
-    </h2>
-    <div class="row row-cols-lg-3 row-cols-md-2 gy-3 gy-lg-0">
+    <div class="d-flex justify-content-between align-items-center py-lg-5 pb-3 fs-5">
+        <h2 class="text-dark">آخرین پروژههای هوگر</h2>
+        <a class="btn btn-primary"
+           href="<?= get_post_type_archive_link('portfolio'); ?>">بیشتر</a>
+    </div>
+
+    <div class="row row-cols-lg-3 row-cols-md-2 gy-3 gy-lg-0 px-lg-2">
         <?php
         $portfolio = array(
             'post_type' => 'portfolio',
             'post_status' => 'publish',
             'order' => 'DESC',
-            'posts_per_page' => 6,
+            'posts_per_page' => 9,
             'ignore_sticky_posts' => true
         );
         $loop_portfolio = new WP_Query($portfolio);

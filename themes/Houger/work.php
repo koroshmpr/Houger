@@ -11,7 +11,7 @@ get_header(); ?>
 
     <section class="container">
         <?php
-        $title = 'RECRUITMENT';
+        $title = 'همکاری با ما';
         $args = array(
             'title' => $title
         );

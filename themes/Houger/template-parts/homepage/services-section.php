@@ -1,6 +1,9 @@
 <section class="container position-relative py-5">
-    <h2 class="py-3"><a class="text-dark fs-5" href="<?= get_post_type_archive_link('services'); ?>">خدمات آژانس تبلیغات
-            بی تی ال هوگر</a></h2>
+    <div class="d-flex justify-content-between align-items-center py-lg-5 pb-3 fs-5">
+        <h2 class="text-dark">خدمات آژانس تبلیغات بی تی ال هوگر</h2>
+        <a class="btn btn-primary"
+           href="<?= get_post_type_archive_link('services'); ?>">بیشتر</a>
+    </div>
     <div class="swiper service_slider">
         <div class="swiper-wrapper">
             <?php
@@ -34,7 +37,7 @@
                         }
                     }
                     ?>
-                    <div class="swiper-slide bg-primary service-home p-3">
+                    <div class="swiper-slide p-3">
                         <?php
                         $modalDetail = 'data-bs-toggle="modal" data-bs-target="#modal-' .  get_the_ID() . '"';
                         $args = array(
@@ -51,10 +54,10 @@
             ?>
         </div>
     </div>
-    <div class="services-button-next position-absolute top-50 end-0 z-top d-inline me-n5 mt-3">
+    <div class="services-button-next position-absolute top-50 end-0 z-top d-inline me-n5 mt-5">
         <i class="bi bi-chevron-left fs-2 text-dark"></i>
     </div>
-    <div class="services-button-prev position-absolute top-50 z-top d-inline ms-n5 mt-3">
+    <div class="services-button-prev position-absolute top-50 z-top d-inline ms-n5 mt-5">
         <i class="bi bi-chevron-right fs-2 text-dark"></i>
     </div>
 </section>

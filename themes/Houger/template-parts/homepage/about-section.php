@@ -5,7 +5,7 @@
             <p class="mb-0"><?= get_field('about-description' , 2); ?></p>
         </div>
         <div class="col-3 text-center text-lg-end">
-            <a class="btn btn-primary" href="<?= get_field('aboutus_link')['url']; ?>">بیشتر بدانید</a>
+            <a class="btn btn-primary" href="<?= get_field('aboutus_link' , 2)['url'] ?? ''; ?>">بیشتر بدانید</a>
         </div>
     </div>
 </section>

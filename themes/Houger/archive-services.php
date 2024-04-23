@@ -5,7 +5,7 @@ get_header(); ?>
 <!--title-->
     <section class="container py-3">
         <?php
-        $title = 'OUR SERVICES';
+        $title = 'خدمات';
         $args = array(
             'title' => $title
         );
@@ -13,7 +13,7 @@ get_header(); ?>
         ?>
     </section>
 <!--services-->
-    <section class="container pt-3 pb-5 min-vh-50">
+    <section class="container py-5 min-vh-50">
 
         <?php
         $service = array(
@@ -50,7 +50,7 @@ get_header(); ?>
                 }
                 ?>
                 <div class="px-3">
-                    <div class="bg-primary service-home p-3">
+                    <div class="service-home cursor-pointer p-3">
                         <?php
                         $modalDetail = 'data-bs-toggle="modal" data-bs-target="#modal-' .  get_the_ID() . '"';
                         $args = array(
