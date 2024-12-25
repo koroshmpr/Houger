@@ -69,7 +69,7 @@ get_header(); ?>
                             if ($has_subcategories) : ?>
                                 <ul class="portfolio-sub position-absolute top-100 overflow-hidden list-unstyled w-100 mx-auto row gap-2 start-0 bg-primary text-white border-top border-2 border-white">
                                     <?php foreach ($subcategories as $subcategory) : ?>
-                                        <li class="border-bottom border-info border-1 py-2" data-aos="fade-down" data-aos-delay="<?= $i ?>0">
+                                        <li class="border-bottom border-info border-1 py-2" data-aos="fade-down" data-aos-anchor-placement="center-top" data-aos-duration="500" data-aos-delay="<?= $i ?>0">
                                             <?php echo $subcategory->name; ?>
                                         </li>
                                     <?php
@@ -131,7 +131,7 @@ get_header(); ?>
                                 }
                                 $current_post = get_post();
                                 ?>
-                                <div class="<?php echo $col_class; ?> row align-items-center aos " data-aos="zoom-in"
+                                <div class="<?php echo $col_class; ?> row align-items-center" data-aos="zoom-in"
                                      data-aos-delay="<?= $i; ?>00">
                                     <div class="ratio <?= $i == 1 ? 'ratio-21x9' : 'ratio-4x3'; ?> px-0 px-lg-2 order-2 order-lg-1 portfolio-card overflow-hidden <?php echo $i > 1 ? 'shadow-sm' : ''; ?> position-relative">
                                         <img src="<?php echo get_the_post_thumbnail_url() ?>"
@@ -156,9 +156,9 @@ get_header(); ?>
                                     </div>
                                     <!--  showing year / brand name and client   -->
                                     <div class="mt-4 col d-flex flex-column align-items-start gap-3 order-3 order-lg-2">
-                                        <div class="d-inline-flex gap-2 align-items-center w-100 pb-2">
-                                            <div class="text-primary fs-5 fw-medium d-flex gap-2">
-                                                <span><?= $client_en; ?></span>
+                                        <div class="d-inline-flex gap-2 align-items-center lh-sm w-100 pb-2">
+                                            <div class="text-primary fs-5 fw-medium d-flex align-items-center gap-2">
+                                                <span class="bg-secondary bg-opacity-75 px-2 pt-2 rounded-2 shadow-sm"><?= $client_en; ?></span>
                                                 <span><?= get_the_title(); ?></span>
                                                 /
                                             </div>

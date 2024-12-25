@@ -37,7 +37,7 @@ get_header(); ?>
             if (have_rows('structure_list')):
                 while (have_rows('structure_list')) : the_row(); ?>
                     <div class="p-2">
-                        <div class="bg-warning p-5 h-100">
+                        <div class="str__card lazy p-5 h-100">
                             <h5 class="text-primary fw-bold mb-3"><?= get_sub_field('title'); ?></h5>
                             <?php
                             if (have_rows('items')):

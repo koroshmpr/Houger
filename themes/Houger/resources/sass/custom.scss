@@ -114,3 +114,10 @@
     padding:0.250rem;
   }
 }
+.str__card {
+  background-size: 300%!important;
+  background: linear-gradient(-320deg, $warning 50%, $secondary 50%) left;
+  &:hover {
+    background-position: right;
+  }
+}
